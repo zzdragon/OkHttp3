@@ -156,9 +156,10 @@ public final class MultipartBody extends RequestBody {
 
       long contentLength = body.contentLength();
       if (contentLength != -1) {
-        sink.writeUtf8("Content-Length: ")
-            .writeDecimalLong(contentLength)
-            .write(CRLF);
+//有此部分时，python读取参数出错
+//        sink.writeUtf8("Content-Length: ")
+//            .writeDecimalLong(contentLength)
+//            .write(CRLF);
       } else if (countBytes) {
         // We can't measure the body's size without the sizes of its components.
         byteCountBuffer.clear();
